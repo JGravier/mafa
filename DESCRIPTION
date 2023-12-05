@@ -1,0 +1,19 @@
+Package: Morphalr
+Title: Create Morphological Analyses for Archaeology
+Version: 0.0.0.9000
+Authors@R: 
+    person("Julie", "Gravier", , "juliecatherine.gravier@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0449-6499"))
+Description: A package to compute morphological indices of spatialized entities (e.g. parcels, buildings). 
+   It also provides visuals of mutlivariate statistics results (ACP and HCA).
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+Imports:
+    Rdpack (>= 2.4),
+    sf (>= 1.0-13),
+    geosphere (>= 1.5-18)
+LazyData: true
