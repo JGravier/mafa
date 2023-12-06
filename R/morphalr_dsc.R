@@ -1,10 +1,11 @@
 #' Compute distance to convex hull
 #'
 #' @description
-#' Compute distance to convex hull (DSC).
+#' Compute the distance of a polygon to its convex hull (DSC).
 #'
 #' @details
 #' \eqn{DSC = 1 - \frac{A_p}{A_{ch}}}, with \eqn{A_p} the area of a polygon and \eqn{A_{ch}} the area of its convex hull.
+#' DSC is normalized between `[0-1]`.
 #'
 #'
 #' @param sfpolygons A sf object composed of polygons
