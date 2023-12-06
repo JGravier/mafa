@@ -75,10 +75,10 @@ rouen_1827 |>
 
 ## Morphological indices implemented
 
-    | Function name | Indices |
-    | :-----: | :---: |
-    | morphalr_segment_orientation | orientations of segments of polygons or lines   |
-    |morphalr_dsr()| distance of polygons to their minimal bounding rectangles |
-    |morphalr_dsc()| distance of polygons to their convex hull |
-    |morphalr_circularity()| Miller circularity index of polygons |
-    |morphalr_complexity()| morphological complexity of polygons |
+| Function name                | Indices                                                   |
+|:-----------------------------|:----------------------------------------------------------|
+| morphalr_segment_orientation | orientations of segments of polygons or lines             |
+| morphalr_dsr()               | distance of polygons to their minimal bounding rectangles |
+| morphalr_dsc()               | distance of polygons to their convex hull                 |
+| morphalr_circularity()       | Miller circularity index of polygons                      |
+| morphalr_complexity()        | morphological complexity of polygons                      |

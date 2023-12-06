@@ -58,7 +58,6 @@ rouen_1827 |>
 ```
 
 ## Morphological indices implemented
-```
 
 | Function name | Indices |
 | :--- | :--- |
@@ -68,5 +67,4 @@ rouen_1827 |>
 |morphalr_circularity()| Miller circularity index of polygons |
 |morphalr_complexity()| morphological complexity of polygons |
 
-```
 
