@@ -1,7 +1,7 @@
 #' Compute morphological complexity
 #'
 #' @description
-#' Compute morphological complexity index.
+#' Compute morphological complexity index of polygons.
 #'
 #' @details
 #' \eqn{I_c = \frac{N_{pv}}{P_p}}, with \eqn{N_{pp}} the number of vertices of a polygon and \eqn{P_p} its perimeter.

@@ -1,7 +1,7 @@
 #' Compute Miller circularity index
 #'
 #' @description
-#' Compute Miller circularity index.
+#' Compute Miller circularity index of polygons.
 #'
 #' @details
 #' \eqn{I_M = \frac{4\pi A_p}{P_p^2}}, with \eqn{A_p} the area of a polygon and \eqn{P_{p}} its perimeter.

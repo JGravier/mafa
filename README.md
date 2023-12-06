@@ -5,7 +5,7 @@
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![R](https://img.shields.io/badge/R-%3E%3D%202.10-blue) ![R CMD
 check](https://img.shields.io/badge/R%20CMD%20check-passing-green)
-![Coverage](https://img.shields.io/badge/coverage-20%25-red)
+![Coverage](https://img.shields.io/badge/coverage-30%25-red)
 
 ## morphalr: Morphological Analysis for Archaeology
 
@@ -59,19 +59,36 @@ orientationsest |>
 
 ## Compute morphological indices
 
-Example with DSR and DSC:
+Example with distance to minimal bounding rectangle (DSR):
 
 ``` r
 rouen_1827 |>
   morphalr_dsr() |>
-  morphalr_dsc() |>
-  pivot_longer(cols = dsr:dsc, names_to = "indices", values_to = "values") |>
   ggplot() +
-  geom_sf(aes(fill = values), color = 'grey90', linewidth = 0.05) +
+  geom_sf(aes(fill = dsr), color = 'grey90', linewidth = 0.05) +
   scale_fill_viridis_c(direction = -1) +
   theme_bw() +
-  theme(axis.ticks = element_blank(), axis.text = element_blank()) +
-  facet_wrap(~indices, ncol = 1)
+  theme(axis.ticks = element_blank(), axis.text = element_blank())
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+## Morphological indices implemented
+
+``` r
+library(kableExtra)
+```
+
+    ## 
+    ## Attaching package: 'kableExtra'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     group_rows
+
+``` r
+tibble(indices = c("orientations of segments of polygons or lines", "distance of polygons to their minimal bounding rectangles", "distance of polygons to their convex hull", "Miller circularity index of polygons", "morphological complexity of polygons"), 
+       `function name` = c("morphalr_segment_orientation", "morphalr_dsr", "morphalr_dsc", "morphalr_circularity",
+                           "morphalr_complexity")) |>
+  kable(format = "latex")
+```
