@@ -75,20 +75,10 @@ rouen_1827 |>
 
 ## Morphological indices implemented
 
-``` r
-library(kableExtra)
-```
-
-    ## 
-    ## Attaching package: 'kableExtra'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     group_rows
-
-``` r
-tibble(indices = c("orientations of segments of polygons or lines", "distance of polygons to their minimal bounding rectangles", "distance of polygons to their convex hull", "Miller circularity index of polygons", "morphological complexity of polygons"), 
-       `function name` = c("morphalr_segment_orientation", "morphalr_dsr", "morphalr_dsc", "morphalr_circularity",
-                           "morphalr_complexity")) |>
-  kable(format = "latex")
-```
+    | Function name | Indices |
+    | :-----: | :---: |
+    | morphalr_segment_orientation | orientations of segments of polygons or lines   |
+    |morphalr_dsr()| distance of polygons to their minimal bounding rectangles |
+    |morphalr_dsc()| distance of polygons to their convex hull |
+    |morphalr_circularity()| Miller circularity index of polygons |
+    |morphalr_complexity()| morphological complexity of polygons |
