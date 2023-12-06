@@ -1,10 +1,10 @@
-#' Extract segments of polygon or linestring.
+#' Extract segments of polygons or lines
 #'
 #' @description
-#' Extraction of segments (lines) composing polygon or linestring.
+#' Extraction of segments (LINE) composing polygons or lines.
 #'
-#' @param sfobject A sf object (POLYGON or LINESTRING)
-#' @param to Type of sf output (MULTILINESTRING or LINESTRING). Default is MULTILINESTRING.
+#' @param sfobject A sf object (sfc is POLYGON or LINESTRING)
+#' @param to Type of sfc in sf output: `"MULTILINESTRING"` or `"LINESTRING"` (default is `"MULTILINESTRING"`)
 #' @return A sf object composed of segments
 #'
 #' @author Diego Hernangómez
@@ -12,7 +12,7 @@
 #' @importFrom Rdpack reprompt
 #' @export
 
-morphal_geom_to_segment <- function(sfobject, to = 'MULTILINESTRING') {
+morphalr_geom_to_segment <- function(sfobject, to = 'MULTILINESTRING') {
   ggg <- sf::st_geometry(sfobject)
 
   #### check validity of geometry

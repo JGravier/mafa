@@ -1,20 +1,20 @@
-#' Compute segment orientation.
+#' Compute segment orientation
 #'
 #' @description
-#' Compute orientations of segments (lines).
+#' Compute orientations of segments (i.e. lines).
 #'
-#' @param sfsegments A sf object
-#' @param looking Eye direction (N or E). Default is North.
-#' @param perpendicular If TRUE, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90. Default is FALSE.
-#' @return A sf object composed of lines with orientations
+#' @param sfsegments A sf object (MULTILINESTRING or LINESTRING)
+#' @param looking Look direction: `"N"` or `"E"` (default is North)
+#' @param perpendicular If `TRUE`, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90 (default is `FALSE`)
+#' @return A sf object composed of segments (i.e. lines) with orientations
 #'
-#' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. https://doi.org/10.4000/books.pufr.7717.
+#' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. [https://doi.org/10.4000/books.pufr.7717]( https://doi.org/10.4000/books.pufr.7717).
 #'
 #' @importFrom Rdpack reprompt
 #' @importFrom rlang .data
 #' @export
 
-morphal_segment_orientation <- function(sfsegments, looking = 'N', perpendicular = FALSE) {
+morphalr_segment_orientation <- function(sfsegments, looking = 'N', perpendicular = FALSE) {
   ggg <- sf::st_geometry(sfsegments)
 
   #### check validity of geometry
