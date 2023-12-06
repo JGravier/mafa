@@ -4,12 +4,17 @@
 #' Compute orientations of segments (lines).
 #'
 #' @param sfsegments A sf object
+#' @param looking Eye direction (N or E). Default is North.
+#' @param perpendicular If TRUE, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90. Default is FALSE.
 #' @return A sf object composed of lines with orientations
 #'
+#' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. https://doi.org/10.4000/books.pufr.7717.
+#'
 #' @importFrom Rdpack reprompt
+#' @importFrom rlang .data
 #' @export
 
-morphal_segment_orientation <- function(sfsegments) {
+morphal_segment_orientation <- function(sfsegments, looking = 'N', perpendicular = FALSE) {
   ggg <- sf::st_geometry(sfsegments)
 
   #### check validity of geometry
@@ -18,25 +23,54 @@ morphal_segment_orientation <- function(sfsegments) {
   }
 
   #### transform data as long LINESTRING sf
-  if (sf::st_geometry_type(ggg) == 'MULTILINESTRING') {
+  if (!unique(sf::st_geometry_type(ggg)) == 'MULTILINESTRING') {
     sfsegments <- sfsegments |> sf::st_cast('LINESTRING')
   }
 
   #### compute orientation
-  sfsegmentswgs84 <- st_transform(x = sfsegments, crs = 4326)
-  coordinatessegments <- st_coordinates(sfsegmentswgs84)
+  sfsegmentswgs84 <- sf::st_transform(x = sfsegments, crs = 4326)
+  coordinatessegments <- sf::st_coordinates(sfsegmentswgs84)
 
-  orientations <- tibble()
+  orientations <- geosphere::bearing(p1 = coordinatessegments[,1:2]) |>
+    tibble::as_tibble() |>
+    dplyr::bind_cols(coordinatessegments[,3] |>
+                       tibble::as_tibble() |>
+                       dplyr::rename(idline = .data$value)) |>
+    dplyr::group_by(.data$idline) |>
+    dplyr::filter(dplyr::row_number() == 1) |>
+    dplyr::rename(orientation = .data$value)
 
-  for (i in 1:length(unique(coordinates[,3]))) {
-    coordinatesmatrix <- coordinates[coordinates[,3]==i,, drop = FALSE]
-    computeorientation <- geosphere::bearing(p1 = coordinatesmatrix[,1:2]) |>
-      as_tibble() |>
-      filter(!is.na(value))
-
+  #### looking parameter
+  if (looking == 'N') {
     orientations <- orientations |>
-      bind_rows(computeorientation)
+      dplyr::mutate(orientation = dplyr::case_when(
+        .data$orientation >= -180 & .data$orientation < -90 ~ .data$orientation + 180,
+        .data$orientation > 90 & .data$orientation <= 180 ~ .data$orientation - 180,
+        TRUE ~ .data$orientation
+      ))
+  } else if (looking == 'E') {
+    orientations <- orientations |>
+      dplyr::mutate(orientation = .data$orientation - 90) |>
+      dplyr::mutate(orientation = dplyr::case_when(
+        .data$orientation >= -270 & .data$orientation < -90 ~ .data$orientation + 180,
+        TRUE ~ .data$orientation
+      ))
   }
+
+  orientations <- orientations |>
+    dplyr::ungroup() |>
+    dplyr::select(.data$orientation)
+
+  #### perpendicular parameter
+  if (perpendicular == TRUE) {
+    orientations <- orientations |>
+      dplyr::mutate(orientation = dplyr::if_else(
+        condition = .data$orientation >= -90 & .data$orientation < 0, true = .data$orientation + 90, false = .data$orientation
+      ))
+  }
+
+  orientations <- sfsegments |>
+    dplyr::bind_cols(orientations)
 
   return(orientations)
 }

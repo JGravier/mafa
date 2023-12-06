@@ -2,21 +2,21 @@
 % Please edit documentation in R/morphal_geom_to_segment.R
 \name{morphal_geom_to_segment}
 \alias{morphal_geom_to_segment}
-\title{Extract segments of polygons or linestrings.}
+\title{Extract segments of polygon or linestring.}
 \usage{
 morphal_geom_to_segment(sfobject, to = "MULTILINESTRING")
 }
 \arguments{
-\item{sfobject}{A sf object (polygons or linestring)}
+\item{sfobject}{A sf object (POLYGON or LINESTRING)}
 
 \item{to}{Type of sf output (MULTILINESTRING or LINESTRING). Default is MULTILINESTRING.}
 }
 \value{
-A sf object composed of segments of polygons or linestrings
+A sf object composed of segments
 }
 \description{
-Extraction of segments (lines) composing polygons or linestrings.
+Extraction of segments (lines) composing polygon or linestring.
 }
 \author{
-Diego HH
+Diego Hernangómez
 }

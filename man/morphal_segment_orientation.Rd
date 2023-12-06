@@ -4,14 +4,21 @@
 \alias{morphal_segment_orientation}
 \title{Compute segment orientation.}
 \usage{
-morphal_segment_orientation(sfsegments)
+morphal_segment_orientation(sfsegments, looking = "N", perpendicular = FALSE)
 }
 \arguments{
 \item{sfsegments}{A sf object}
+
+\item{looking}{Eye direction (N or E). Default is North.}
+
+\item{perpendicular}{If TRUE, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90. Default is FALSE.}
 }
 \value{
 A sf object composed of lines with orientations
 }
 \description{
 Compute orientations of segments (lines).
+}
+\references{
+Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. https://doi.org/10.4000/books.pufr.7717.
 }

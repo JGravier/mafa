@@ -3,3 +3,4 @@
 export(morphal_geom_to_segment)
 export(morphal_segment_orientation)
 importFrom(Rdpack,reprompt)
+importFrom(rlang,.data)

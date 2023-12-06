@@ -1,13 +1,13 @@
-#' Extract segments of polygons or linestrings.
+#' Extract segments of polygon or linestring.
 #'
 #' @description
-#' Extraction of segments (lines) composing polygons or linestrings.
+#' Extraction of segments (lines) composing polygon or linestring.
 #'
-#' @param sfobject A sf object (polygons or linestring)
+#' @param sfobject A sf object (POLYGON or LINESTRING)
 #' @param to Type of sf output (MULTILINESTRING or LINESTRING). Default is MULTILINESTRING.
-#' @return A sf object composed of segments of polygons or linestrings
+#' @return A sf object composed of segments
 #'
-#' @author Diego HH
+#' @author Diego Hernangómez
 #'
 #' @importFrom Rdpack reprompt
 #' @export

@@ -9,8 +9,8 @@
 
 A simple feature with 21,975 features and 1 field:
 \describe{
-\item{id}{identifiers in initial dataset}
-\item{geometry}{polygons}
+\item{rowid}{identifiers}
+\item{geometry}{geometry of polygons}
 }
 }
 }
