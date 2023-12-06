@@ -33,18 +33,25 @@ linerouen <- morphalr_geom_to_segment(sfobject = rouen_1827, to = 'LINESTRING')
 ```
 `morphal_geom_to_segment()` can be applied on LINESTRING, e.g. in the case of streets modeled as lines.
 
-Compute orientations of lines with North or East looking parameters.
+Compute orientations of segments with East looking and perpendicular parameters.
 ```{r, message=FALSE, warning=FALSE}
-orientationsnord <- morphalr_segment_orientation(sfsegments = linerouen)
-orientationsest <- morphalr_segment_orientation(sfsegments = linerouen, looking = 'E')
+orientationsest <- morphalr_segment_orientation(sfsegments = linerouen, looking = 'E', perpendicular = TRUE)
 
-orientationsnord |>
-  mutate(looking = 'North') |>
-  bind_rows(orientationsest |> mutate(looking = 'East')) |>
+orientationsest |>
   ggplot() +
   geom_sf(aes(color = orientation)) +
-  scale_color_gradient2() +
-  facet_wrap(~looking) +
+  scale_color_viridis_c() +
+  theme_bw() +
+  theme(axis.ticks = element_blank(), axis.text = element_blank())
+```
+
+## Compute morphological indices
+Example with DSR:
+```{r}
+morphalr_dsr(sfpolygons = rouen_1827) |>
+  ggplot() +
+  geom_sf(aes(fill = dsr)) +
+  scale_fill_viridis_c(direction = -1) +
   theme_bw() +
   theme(axis.ticks = element_blank(), axis.text = element_blank())
 ```
