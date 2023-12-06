@@ -73,12 +73,20 @@ rouen_1827 |>
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-## Morphological indices implemented
+## Morphological indices
 
-| Function name                | Indices                                                   |
-|:-----------------------------|:----------------------------------------------------------|
-| morphalr_segment_orientation | orientations of segments of polygons or lines             |
-| morphalr_dsr()               | distance of polygons to their minimal bounding rectangles |
-| morphalr_dsc()               | distance of polygons to their convex hull                 |
-| morphalr_circularity()       | Miller circularity index of polygons                      |
-| morphalr_complexity()        | morphological complexity of polygons                      |
+| Function name                  | Indices                                                   |     Implementation |
+|:-------------------------------|:----------------------------------------------------------|-------------------:|
+| morphalr_segment_orientation() | orientations of segments of polygons or lines             | :white_check_mark: |
+| morphalr_dsr()                 | distance of polygons to their minimal bounding rectangles | :white_check_mark: |
+| morphalr_dsc()                 | distance of polygons to their convex hull                 | :white_check_mark: |
+| morphalr_circularity()         | Miller circularity index of polygons                      | :white_check_mark: |
+| morphalr_complexity()          | morphological complexity of polygons                      | :white_check_mark: |
+|                                | elongation (Schum)                                        |             :soon: |
+|                                | spreading (Morton)                                        |             :soon: |
+|                                | compacity (Thibault et al.)                               |             :soon: |
+|                                | compactity 2 (Cauvin and Rimbert)                         |             :soon: |
+|                                | compacity 3 (Gravelius)                                   |             :soon: |
+|                                | stretching                                                |             :soon: |
+|                                | area concavity                                            |             :soon: |
+|                                | inverse of perimeter concavity                            |             :soon: |
