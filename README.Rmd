@@ -46,13 +46,17 @@ orientationsest |>
 ```
 
 ## Compute morphological indices
-Example with DSR:
+Example with DSR and DSC:
 ```{r}
-morphalr_dsr(sfpolygons = rouen_1827) |>
+rouen_1827 |>
+  morphalr_dsr() |>
+  morphalr_dsc() |>
+  pivot_longer(cols = dsr:dsc, names_to = "indices", values_to = "values") |>
   ggplot() +
-  geom_sf(aes(fill = dsr)) +
+  geom_sf(aes(fill = values), color = 'grey90', linewidth = 0.05) +
   scale_fill_viridis_c(direction = -1) +
   theme_bw() +
-  theme(axis.ticks = element_blank(), axis.text = element_blank())
+  theme(axis.ticks = element_blank(), axis.text = element_blank()) +
+  facet_wrap(~indices, ncol = 1)
 ```
 

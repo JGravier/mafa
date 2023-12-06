@@ -15,6 +15,9 @@ morphalr_dsr(sfpolygons)
 \description{
 Compute distance to smallest bounding rectangle (DSR).
 }
+\details{
+\eqn{DSR = 1 - \frac{A_p}{A_{mbb}}}, with \eqn{A_p} the area of a polygon and \eqn{A_{mbb}} the area of its minimal oriented bounding box.
+}
 \references{
 Ali, Atef Bel Hadj. 2001. « Qualité géométrique des entités géographiques surfaciques. Application à l’appariement et définition d’une typologie des écarts geométriques ». Phdthesis, université Gustave Effeil ; Anciennement Université de Marne La vallée. \url{https://hal.science/tel-03244834}, p. 92.
 

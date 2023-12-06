@@ -15,6 +15,9 @@ morphalr_dsc(sfpolygons)
 \description{
 Compute distance to convex hull (DSC).
 }
+\details{
+\eqn{DSC = 1 - \frac{A_p}{A_{ch}}}, with \eqn{A_p} the area of a polygon and \eqn{A_{ch}} the area of its convex hull.
+}
 \references{
 Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. \url{https://doi.org/10.4000/books.pufr.7717}.
 }

@@ -15,7 +15,11 @@ morphalr_geom_to_segment(sfobject, to = "MULTILINESTRING")
 A sf object composed of segments
 }
 \description{
-Extraction of segments (LINE) composing polygons or lines.
+Extraction of segments (as \code{LINE}) composing polygons or lines.
+}
+\details{
+When computing to \code{"MULTILINESTRING"}, output is equivalent to \code{sfobject} with a \code{GEOMETRY} of multiple segments as \code{LINES} in \code{MULTILINESTRING}.
+When computing to \code{"LINESTRING"}, output is a long sf of \code{sfobject} where each row correspond to a segment with a \code{GEOMETRY} as \code{LINE}.
 }
 \author{
 Diego Hernangómez

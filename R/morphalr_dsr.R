@@ -3,6 +3,9 @@
 #' @description
 #' Compute distance to smallest bounding rectangle (DSR).
 #'
+#' @details
+#' \eqn{DSR = 1 - \frac{A_p}{A_{mbb}}}, with \eqn{A_p} the area of a polygon and \eqn{A_{mbb}} the area of its minimal oriented bounding box.
+#'
 #' @param sfpolygons A sf object composed of polygons
 #' @return `sfpoygons` with DSR as a new variable
 #'
