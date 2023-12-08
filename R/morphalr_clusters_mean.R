@@ -16,7 +16,8 @@
 #' @export
 
 morphalr_clusters_mean <- function(sf, clustering, cutting){
-  sfdf <- sf::st_drop_geometry(x = sf)
+  sfdf <- sf::st_drop_geometry(x = sf) |>
+    dplyr::mutate(dplyr::across(dplyr::everything(), ~ c(scale(.)), .names = "{.col}")) # scale(center=TRUE, scale=TRUE)
   cluster_cut <- stats::cutree(clustering, k = cutting)
   sfdf$cluster <- factor(cluster_cut, levels = 1:cutting, labels = paste("cluster", 1:cutting))
   sfdf <- sfdf |>
