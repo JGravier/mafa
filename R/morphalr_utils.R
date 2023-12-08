@@ -1,10 +1,10 @@
-#' Create minBBox of a polygon
+#' Create minimal bounding rectangles
 #'
 #' @description
-#' Create minimal bounding oriented box rectangles of a polygon
+#' Create minimal bounding oriented rectangles of polygons.
 #'
-#' @param sfpolygon A sf object composed of polygon
-#' @return A sf object composed of minimal bounding box oriented rectangle
+#' @param sfpolygon A sf object composed of polygons.
+#' @return A sf object composed of minimal oriented bounding rectangle.
 #'
 #' @importFrom Rdpack reprompt
 #' @importFrom rlang .data

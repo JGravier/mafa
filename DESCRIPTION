@@ -19,7 +19,9 @@ Imports:
     dplyr (>= 1.1.2),
     tibble (>= 3.2.1),
     rlang (>= 1.1.1),
-    shotGroups (>= 0.8.2)
+    shotGroups (>= 0.8.2),
+    ade4 (>= 1.7-22),
+    fastcluster (>= 1.2.3)
 LazyData: true
 Suggests: 
     knitr,
