@@ -138,14 +138,14 @@ morphalr_clusters_mean(sf = rouen_with_indices, clustering = clusterrouen, cutti
 ```
 
     ## # A tibble: 6 × 4
-    ##   cluster   miller_index     dsc    dsr
-    ##   <fct>            <dbl>   <dbl>  <dbl>
-    ## 1 cluster 1        0.623 0.0699  0.207 
-    ## 2 cluster 2        0.582 0.00732 0.0685
-    ## 3 cluster 3        0.441 0.188   0.348 
-    ## 4 cluster 4        0.288 0.390   0.561 
-    ## 5 cluster 5        0.746 0.00339 0.0607
-    ## 6 cluster 6        0.324 0.0252  0.161
+    ##   cluster   miller_index    dsc     dsr
+    ##   <fct>            <dbl>  <dbl>   <dbl>
+    ## 1 cluster 1        0.131  0.118  0.367 
+    ## 2 cluster 2       -0.152 -0.551 -0.632 
+    ## 3 cluster 3       -1.14   1.38   1.38  
+    ## 4 cluster 4       -2.20   3.54   2.92  
+    ## 5 cluster 5        0.991 -0.593 -0.688 
+    ## 6 cluster 6       -1.95  -0.359  0.0322
 
 ## Morphological indices
 
