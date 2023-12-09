@@ -14,8 +14,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, attr.warning=FALSE}
 library(morphalr)
+library(parallel)
+library(data.table)
+library(dplyr)
+library(sf)
+library(ggplot2)
 ```
 
 ## Extracting segments from sf
@@ -35,11 +40,6 @@ rouenline
 ## Parallelizing extraction
 Computing of `morphal_geom_to_segment()` can be long and it may be useful to parallelize computing.
 ```{r, message=FALSE, warning=FALSE, eval=FALSE}
-library(parallel)
-library(data.table)
-library(dplyr)
-library(sf)
-
 nbcores <- parallel::detectCores() - 1
 rouensplit <- rouen_1827 |>
   mutate(bloc1000 = 1:nrow(rouen_1827) %/% 1000) |>
@@ -57,11 +57,24 @@ rouenparall <- rouenparall |>
 ```
 
 ## Computing orientations
-Compute orientations of segments with East looking and perpendicular parameters.
+Compute orientations of segments with `morphalr_segment_orientation()`. The looking default parameters is "N" for North, and results are in degrees on a semicircle [-90;90].
 ```{r, message=FALSE, warning=FALSE}
-orientationsest <- morphalr_segment_orientation(sfsegments = rouenline, looking = 'E', perpendicular = TRUE)
+orientations <- morphalr_segment_orientation(sfsegments = rouenline)
 
-orientationsest |>
+orientations |>
+  ggplot() +
+  geom_sf(aes(color = orientation)) +
+  scale_color_viridis_c() +
+  theme_bw() +
+  theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
+```
+
+
+Compute orientations of segments with East looking and perpendicular parameters. The latter makes it possible to combine perpendicular orientations, with values in degrees recalculated in a quarter circle [0;90].
+```{r, message=FALSE, warning=FALSE}
+orientations <- morphalr_segment_orientation(sfsegments = rouenline, looking = 'E', perpendicular = TRUE)
+
+orientations |>
   ggplot() +
   geom_sf(aes(color = orientation)) +
   scale_color_viridis_c() +
