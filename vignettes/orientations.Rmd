@@ -1,0 +1,71 @@
+---
+title: "Computing orientations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Computing orientations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(morphalr)
+```
+
+## Extracting segments from sf
+Extracting segments with `morphal_geom_to_segment()` can be applied to polygon or linestring geometry. Default output consists of the input sf composed of segments (i.e LINE) in a MULTILINESTRING geometry.
+```{r, message=FALSE, warning=FALSE}
+# transform polygons as segments (lines)
+morphalr_geom_to_segment(sfobject = rouen_1827)
+```
+
+Parameter `to` provides LINESTRING output.
+```{r, message=FALSE, warning=FALSE}
+rouenline <- morphalr_geom_to_segment(sfobject = rouen_1827, to = 'LINESTRING')
+rouenline
+```
+
+
+## Parallelizing extraction
+Computing of `morphal_geom_to_segment()` can be long and it may be useful to parallelize computing.
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
+library(parallel)
+library(data.table)
+library(dplyr)
+library(sf)
+
+nbcores <- parallel::detectCores() - 1
+rouensplit <- rouen_1827 |>
+  mutate(bloc1000 = 1:nrow(rouen_1827) %/% 1000) |>
+  group_by(bloc1000) |>
+  group_split()
+
+rouenparall <- mclapply(X = rouensplit, FUN = morphalr_geom_to_segment, mc.cores = nbcores)
+rouenparall <- data.table::rbindlist(rouenparall) |>
+  st_as_sf() |>
+  select(-bloc1000)
+
+# as LINESTRING
+rouenparall <- rouenparall |>
+  st_cast(to = 'LINESTRING')
+```
+
+## Computing orientations
+Compute orientations of segments with East looking and perpendicular parameters.
+```{r, message=FALSE, warning=FALSE}
+orientationsest <- morphalr_segment_orientation(sfsegments = rouenline, looking = 'E', perpendicular = TRUE)
+
+orientationsest |>
+  ggplot() +
+  geom_sf(aes(color = orientation)) +
+  scale_color_viridis_c() +
+  theme_bw() +
+  theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
+```
+

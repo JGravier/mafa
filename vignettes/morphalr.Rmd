@@ -1,34 +1,30 @@
 ---
-output: github_document
-editor_options: 
-chunk_output_type: console
+title: "morphalr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{morphalr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-## package development
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![R](https://img.shields.io/badge/R-%3E%3D%202.10-blue) 
-![R CMD check](https://img.shields.io/badge/R%20CMD%20check-passing-green)
-![Coverage](https://img.shields.io/badge/coverage-60%60-yellow)
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(morphalr)
+library(ggplot2)
+```
 
 ## morphalr: Morphological Analysis for Archaeology
-A package to compute morphological indices of spatial entities (e.g. parcels, buildings). It also provides visuals of multivariate statistics results (ACP and HCA).
-
-
-## Installing
-Package currently exist as development on github.
-
-Install package from github:
-```{r, eval=FALSE}
-library(remotes)
-install_github(repo = "JGravier/morphalr")
-```
+morphalr package compute morphological indices of spatial entities (e.g. parcels, buildings). It also provides computation of multivariate statistics (HCA/PCA).
 
 ## Compute orientations from polygon
 Load data of parcels of the city of Rouen in 1827 and extract segments (lines) from polygons.
 ```{r, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(sf)
-library(kableExtra)
-library(morphalr)
-
 # transform polygons as segments (lines)
 linerouen <- morphalr_geom_to_segment(sfobject = rouen_1827, to = 'LINESTRING')
 ```
@@ -76,6 +72,7 @@ clusterrouen <- morphalr_clustering(sf = rouen_with_indices, pca_center = TRUE, 
 
 plot(clusterrouen, labels = FALSE, hang = 0)
 ```
+
 ### Clusters
 Cartography of clusters:
 ```{r, message=FALSE, warning=FALSE}
@@ -91,21 +88,3 @@ Summary of clusters with mean of center-scale values of variables by cluster.
 ```{r, message=FALSE, warning=FALSE}
 morphalr_clusters_mean(sf = rouen_with_indices, clustering = clusterrouen, cutting = 6)
 ```
-
-## Morphological indices
-
-| Function name | Indices | Implementation |
-| :--- | :--- | ---: |
-|morphalr_segment_orientation() | orientations of segments of polygons or lines  | :white_check_mark: |
-|morphalr_dsr()| distance of polygons to their minimal bounding rectangles |:white_check_mark:|
-|morphalr_dsc()| distance of polygons to their convex hull |:white_check_mark:|
-|morphalr_circularity()| Miller circularity index of polygons |:white_check_mark:|
-|morphalr_complexity()| morphological complexity of polygons |:white_check_mark:|
-||elongation (Schum)|:soon:|
-||spreading (Morton)|:soon:|
-||compacity (Thibault et al.) |:soon:|
-||compactity 2 (Cauvin and Rimbert)|:soon:|
-||compacity 3 (Gravelius) |:soon:|
-||stretching|:soon:|
-||area concavity|:soon:|
-||inverse of perimeter concavity|:soon:|

@@ -56,7 +56,7 @@ orientationsest |>
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/unnamed-chunk-3-1.png)<!-- -->
 
 ## Compute morphological indices
 
@@ -72,7 +72,7 @@ rouen_1827 |>
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/unnamed-chunk-4-1.png)<!-- -->
 
 ## Computing clusters from indices
 
@@ -116,7 +116,7 @@ clusterrouen <- morphalr_clustering(sf = rouen_with_indices, pca_center = TRUE, 
 plot(clusterrouen, labels = FALSE, hang = 0)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \### Clusters
+![](man/figures/unnamed-chunk-6-1.png)<!-- --> \### Clusters
 Cartography of clusters:
 
 ``` r
@@ -128,7 +128,7 @@ morphalr_clusters(sf = rouen_with_indices, clustering = clusterrouen, cutting = 
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](man/figures/unnamed-chunk-7-1.png)<!-- -->
 
 Summary of clusters with mean of center-scale values of variables by
 cluster.

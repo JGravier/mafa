@@ -24,7 +24,7 @@ morphalr_dsr <- function(sfpolygons){
     dplyr::group_by(.data$rowidboundingbox) |>
     dplyr::group_split()
 
-  listboundingbox <- lapply(listpolygons, morphalr_utils_mbboxoriented) # apply morphal_utils_mmboxoriented function
+  listboundingbox <- lapply(listpolygons, morphalr_mbboxoriented) # apply morphalr_mbboxoriented function
 
   sfboudingbox <- dplyr::bind_rows(listboundingbox)
 

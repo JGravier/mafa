@@ -10,7 +10,7 @@
 #' @importFrom rlang .data
 #' @export
 
-morphalr_utils_mbboxoriented <- function(sfpolygon){
+morphalr_mbboxoriented <- function(sfpolygon){
   #### extract minimal bounding box
   xyminbbox <- shotGroups::getMinBBox(as.matrix(sf::st_coordinates(sfpolygon)[,1:2]))$pts
   # add a point to close polygon
