@@ -64,12 +64,12 @@
   <main id="main" class="col-md-9"><div class="section level2">
 <h2 id="package-development">package development<a class="anchor" aria-label="anchor" href="#package-development"></a>
 </h2>
-<p><a href="https://www.gnu.org/licenses/gpl-3.0" class="external-link"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a> <img src="https://img.shields.io/badge/R-%3E%3D%202.10-blue" alt="R"><img src="https://img.shields.io/badge/R%20CMD%20check-passing-green" alt="R CMD check"><img src="https://img.shields.io/badge/coverage-60%60-yellow" alt="Coverage"></p>
+<p><a href="https://www.gnu.org/licenses/gpl-3.0" class="external-link"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPLv3"></a> <img src="https://img.shields.io/badge/R-%3E%3D%202.10-blue" alt="R"><img src="https://img.shields.io/badge/R%20CMD%20check-passing-green" alt="R CMDcheck"><img src="https://img.shields.io/badge/coverage-60%60-yellow" alt="Coverage"></p>
 </div>
 <div class="section level2">
 <h2 id="morphalr-morphological-analysis-for-archaeology">morphalr: Morphological Analysis for Archaeology<a class="anchor" aria-label="anchor" href="#morphalr-morphological-analysis-for-archaeology"></a>
 </h2>
-<p>A package to compute morphological indices of spatial entities (e.g. parcels, buildings). It also provides visuals of multivariate statistics results (ACP and HCA).</p>
+<p>A package to compute morphological indices of spatial entities (e.g. parcels, buildings). It also provides computation of multivariate statistics results (HCA/PCA).</p>
 </div>
 <div class="section level2">
 <h2 id="installing">Installing<a class="anchor" aria-label="anchor" href="#installing"></a>
@@ -79,103 +79,6 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
 <span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"JGravier/morphalr"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="compute-orientations-from-polygon">Compute orientations from polygon<a class="anchor" aria-label="anchor" href="#compute-orientations-from-polygon"></a>
-</h2>
-<p>Load data of parcels of the city of Rouen in 1827 and extract segments (lines) from polygons.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jgravier.github.io/morphalr/">morphalr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># transform polygons as segments (lines)</span></span>
-<span><span class="va">linerouen</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/morphalr_geom_to_segment.html">morphalr_geom_to_segment</a></span><span class="op">(</span>sfobject <span class="op">=</span> <span class="va">rouen_1827</span>, to <span class="op">=</span> <span class="st">'LINESTRING'</span><span class="op">)</span></span></code></pre></div>
-<p><code>morphal_geom_to_segment()</code> can be applied on LINESTRING, e.g. in the case of streets modeled as lines.</p>
-<p>Compute orientations of segments with East looking and perpendicular parameters.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orientationsest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/morphalr_segment_orientation.html">morphalr_segment_orientation</a></span><span class="op">(</span>sfsegments <span class="op">=</span> <span class="va">linerouen</span>, looking <span class="op">=</span> <span class="st">'E'</span>, perpendicular <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">orientationsest</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_sf</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">orientation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_color_viridis_c</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.text <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-3-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="compute-morphological-indices">Compute morphological indices<a class="anchor" aria-label="anchor" href="#compute-morphological-indices"></a>
-</h2>
-<p>Example with distance to minimal bounding rectangle (DSR):</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rouen_1827</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/morphalr_dsr.html">morphalr_dsr</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_sf</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">dsr</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">'grey90'</span>, linewidth <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_fill_viridis_c</span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.text <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-4-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="computing-clusters-from-indices">Computing clusters from indices<a class="anchor" aria-label="anchor" href="#computing-clusters-from-indices"></a>
-</h2>
-<p>Compute indices.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rouen_with_indices</span> <span class="op">&lt;-</span> <span class="va">rouen_1827</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/morphalr_circularity.html">morphalr_circularity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/morphalr_dsc.html">morphalr_dsc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/morphalr_dsr.html">morphalr_dsr</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rouen_with_indices</span> <span class="op">&lt;-</span> <span class="va">rouen_with_indices</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span> <span class="co"># without rowid</span></span>
-<span><span class="va">rouen_with_indices</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple feature collection with 10240 features and 3 fields</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Geometry type: POLYGON</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Dimension:     XY</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Bounding box:  xmin: 560973.9 ymin: 6927999 xmax: 563141.3 ymax: 6929327</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Projected CRS: RGF93 v1 / Lambert-93</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 10,240 × 4</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">##                                           geometry miller_index       dsc    dsr</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                                      &lt;POLYGON [m]&gt;        &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 ((561754.2 6928994, 561759.5 6928992, 561756.2…        0.690  0        0.174 </span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 ((561779.4 6929002, 561773.6 6928982, 561764.7…        0.689 -3.19e-12 0.0625</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 ((561732.2 6928970, 561735.3 6928967, 561741.4…        0.247  2.30e- 1 0.405 </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 ((561715.6 6928974, 561708.7 6928977, 561705.1…        0.180  5.55e- 1 0.717 </span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 ((561605.9 6928902, 561603.4 6928896, 561592.8…        0.719  0        0.0265</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 ((561604.7 6928915, 561607.3 6928914, 561614 6…        0.490  3.56e- 3 0.0603</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 ((561610.9 6928904, 561611.7 6928904, 561610 6…        0.493  2.79e- 4 0.0623</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 ((561621 6928889, 561612.5 6928867, 561608.2 6…        0.441  1.20e- 2 0.0711</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 ((561627.2 6928869, 561623 6928871, 561619.3 6…        0.773  6.85e- 3 0.0271</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 ((561628.3 6928906, 561621.3 6928890, 561616.4…        0.680  2.91e- 2 0.122 </span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 10,230 more rows</span></span></code></pre></div>
-<p>Create clustering and plot result:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">clusterrouen</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/morphalr_clustering.html">morphalr_clustering</a></span><span class="op">(</span>sf <span class="op">=</span> <span class="va">rouen_with_indices</span>, pca_center <span class="op">=</span> <span class="cn">TRUE</span>, pca_scale <span class="op">=</span> <span class="cn">TRUE</span>, hca_method <span class="op">=</span> <span class="st">'ward.D2'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">clusterrouen</span>, labels <span class="op">=</span> <span class="cn">FALSE</span>, hang <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-6-1.png"><!-- --> ### Clusters Cartography of clusters:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/morphalr_clusters.html">morphalr_clusters</a></span><span class="op">(</span>sf <span class="op">=</span> <span class="va">rouen_with_indices</span>, clustering <span class="op">=</span> <span class="va">clusterrouen</span>, cutting <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_sf</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">cluster</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">'white'</span>, linewidth <span class="op">=</span> <span class="fl">0.02</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggthemes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggthemes/man/colorblind.html" class="external-link">scale_fill_colorblind</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.text <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-7-1.png"><!-- --></p>
-<p>Summary of clusters with mean of center-scale values of variables by cluster.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/morphalr_clusters_mean.html">morphalr_clusters_mean</a></span><span class="op">(</span>sf <span class="op">=</span> <span class="va">rouen_with_indices</span>, clustering <span class="op">=</span> <span class="va">clusterrouen</span>, cutting <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 4</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   cluster   miller_index    dsc     dsr</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 cluster 1        0.131  0.118  0.367 </span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 cluster 2       -0.152 -0.551 -0.632 </span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 cluster 3       -1.14   1.38   1.38  </span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 cluster 4       -2.20   3.54   2.92  </span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 cluster 5        0.991 -0.593 -0.688 </span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 cluster 6       -1.95  -0.359  0.0322</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="morphological-indices">Morphological indices<a class="anchor" aria-label="anchor" href="#morphological-indices"></a>

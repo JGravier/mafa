@@ -78,27 +78,15 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">parallel</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:data.table':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     between, first, last</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 8.2.1; sf_use_s2() is TRUE</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="extracting-segments-from-sf">Extracting segments from sf<a class="anchor" aria-label="anchor" href="#extracting-segments-from-sf"></a>
 </h2>
 <p>Extracting segments with <code>morphal_geom_to_segment()</code> can
-be applied to polygon or linestring geometry. Default output consists of
-the input sf composed of segments (i.e LINE) in a MULTILINESTRING
-geometry.</p>
+be applied to polygon or linestring geometries. Default output consists
+of the input sf composed of segments (i.e LINE as line composed of only
+two points) in a MULTILINESTRING geometry.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># transform polygons as segments (lines)</span></span>
 <span><span class="fu"><a href="../reference/morphalr_geom_to_segment.html">morphalr_geom_to_segment</a></span><span class="op">(</span>sfobject <span class="op">=</span> <span class="va">rouen_1827</span><span class="op">)</span></span>
@@ -121,7 +109,7 @@ geometry.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 ((561627.2 6928869, 561623 6928871), (561623 6928871, 561619.3 6928873…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 ((561628.3 6928906, 561621.3 6928890), (561621.3 6928890, 561616.4 692…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 10,230 more rows</span></span></span></code></pre></div>
-<p>Parameter <code>to</code> provides LINESTRING output.</p>
+<p>Parameter <code>to</code> can provides LINESTRING output.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rouenline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/morphalr_geom_to_segment.html">morphalr_geom_to_segment</a></span><span class="op">(</span>sfobject <span class="op">=</span> <span class="va">rouen_1827</span>, to <span class="op">=</span> <span class="st">'LINESTRING'</span><span class="op">)</span></span>
 <span><span class="va">rouenline</span></span>
@@ -149,7 +137,7 @@ geometry.</p>
 <h2 id="parallelizing-extraction">Parallelizing extraction<a class="anchor" aria-label="anchor" href="#parallelizing-extraction"></a>
 </h2>
 <p>Computing of <code>morphal_geom_to_segment()</code> can be long and
-it may be useful to parallelize computing.</p>
+it may be useful to apply parallel computing.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nbcores</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span>
 <span><span class="va">rouensplit</span> <span class="op">&lt;-</span> <span class="va">rouen_1827</span> <span class="op">|&gt;</span></span>
