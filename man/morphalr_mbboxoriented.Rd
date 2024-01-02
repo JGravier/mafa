@@ -2,16 +2,16 @@
 % Please edit documentation in R/morphalr_mbboxoriented.R
 \name{morphalr_mbboxoriented}
 \alias{morphalr_mbboxoriented}
-\title{Create minimal bounding rectangles}
+\title{Minimal oriented bounding rectangles}
 \usage{
 morphalr_mbboxoriented(sfpolygon)
 }
 \arguments{
-\item{sfpolygon}{A sf object composed of polygons.}
+\item{sfpolygon}{sf object composed of polygons.}
 }
 \value{
-A sf object composed of minimal oriented bounding rectangle.
+sf object composed of minimal oriented bounding rectangles.
 }
 \description{
-Create minimal bounding oriented rectangles of polygons.
+Create minimal oriented bounding rectangles of polygons.
 }

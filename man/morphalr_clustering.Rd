@@ -2,28 +2,28 @@
 % Please edit documentation in R/morphalr_clustering.R
 \name{morphalr_clustering}
 \alias{morphalr_clustering}
-\title{Compute clustering of spatial entities}
+\title{Clustering of spatial entities}
 \usage{
 morphalr_clustering(sf, pca_center, pca_scale, hca_method)
 }
 \arguments{
 \item{sf}{sf object.}
 
-\item{pca_center}{logical or numeric value, centering option as in \code{dudi.pca()}. TRUE: centering by the mean, FALSE: no centering}
+\item{pca_center}{logical or numeric value indicating whether columns should be centered as in as in \code{dudi.pca()}.}
 
-\item{pca_scale}{logical value indicating whether the column vectors should be scaled as in \code{dudi.pca()}.}
+\item{pca_scale}{logical value indicating whether columns should be scaled as in \code{dudi.pca()}.}
 
-\item{hca_method}{character string defining the clustering method implemented in \code{fastcluster::hclust()}: \code{"single"}, \code{"single"},
+\item{hca_method}{character string defining the clustering method as implemented in \code{hclust()} of \code{fastcluster} package: \code{"single"}, \code{"average"},
 \code{"complete"}, \code{"ward.D"}, \code{"ward.D2"}, \code{"mcquitty"}, \code{"centroid"} or \code{"median"}.}
 }
 \value{
 clustering object of class \code{hclust}.
 }
 \description{
-Compute clustering of spatial entities based on HCA on distance matrix of coordinates of PCA.
+Compute clustering of spatial entities based on HCA on distance matrix of the coordinates of PCA.
 }
 \seealso{
-\code{\link[=dudi.pca]{dudi.pca()}}
+\code{\link[ade4:dudi.pca]{ade4::dudi.pca()}}
 
 \code{\link[fastcluster:hclust]{fastcluster::hclust()}}
 }

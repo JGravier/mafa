@@ -1,4 +1,4 @@
-#' Compute distance to convex hull
+#' Distance to convex hull
 #'
 #' @description
 #' Compute the distance of a polygon to its convex hull (DSC).
@@ -8,8 +8,8 @@
 #' DSC is normalized between `[0-1]`.
 #'
 #'
-#' @param sfpolygons A sf object composed of polygons
-#' @return `sfpoygons` with DSC as a new variable
+#' @param sfpolygons sf object composed of polygons.
+#' @return `sfpoygons` with DSC as a new column.
 #'
 #' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. [https://doi.org/10.4000/books.pufr.7717]( https://doi.org/10.4000/books.pufr.7717).
 #'

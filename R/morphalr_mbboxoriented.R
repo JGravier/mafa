@@ -1,17 +1,17 @@
-#' Create minimal bounding rectangles
+#' Minimal oriented bounding rectangles
 #'
 #' @description
-#' Create minimal bounding oriented rectangles of polygons.
+#' Create minimal oriented bounding rectangles of polygons.
 #'
-#' @param sfpolygon A sf object composed of polygons.
-#' @return A sf object composed of minimal oriented bounding rectangle.
+#' @param sfpolygon sf object composed of polygons.
+#' @return sf object composed of minimal oriented bounding rectangles.
 #'
 #' @importFrom Rdpack reprompt
 #' @importFrom rlang .data
 #' @export
 
 morphalr_mbboxoriented <- function(sfpolygon){
-  #### extract minimal bounding box
+  # extract minimal bounding box
   xyminbbox <- shotGroups::getMinBBox(as.matrix(sf::st_coordinates(sfpolygon)[,1:2]))$pts
   # add a point to close polygon
   xyminbbox <- rbind(xyminbbox, xyminbbox[1,])

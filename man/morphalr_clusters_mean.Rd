@@ -2,7 +2,7 @@
 % Please edit documentation in R/morphalr_clusters_mean.R
 \name{morphalr_clusters_mean}
 \alias{morphalr_clusters_mean}
-\title{Compute mean of center-scale values of columns by cluster}
+\title{Mean of center-scale values of columns by cluster}
 \usage{
 morphalr_clusters_mean(sf, clustering, cutting)
 }
@@ -17,7 +17,7 @@ morphalr_clusters_mean(sf, clustering, cutting)
 a tibble.
 }
 \description{
-Compute mean of center-scale values of columns group by clusters.
+Compute mean of center-scale values of columns group by cluster.
 }
 \seealso{
 \code{\link[=morphalr_clustering]{morphalr_clustering()}}

@@ -9,15 +9,15 @@ morphalr_clusters(sf, clustering, cutting)
 \arguments{
 \item{sf}{sf object.}
 
-\item{clustering}{hclust object, e.g. the result of \code{morphalr_clustering()}.}
+\item{clustering}{\code{hclust} object, e.g. the result of \code{morphalr_clustering()}.}
 
 \item{cutting}{numeric value of cutting threshold.}
 }
 \value{
-sf object with clusters as a new variable.
+sf object with clusters as a new column.
 }
 \description{
-Add clusters of spatial entities from selected cutting threshold of the \code{morphalr_clustering()} result.
+Add clusters of spatial entities from a selected cutting threshold of a \code{hclust} object.
 }
 \seealso{
 \code{\link[=morphalr_clustering]{morphalr_clustering()}}

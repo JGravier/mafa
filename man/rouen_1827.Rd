@@ -5,17 +5,14 @@
 \alias{rouen_1827}
 \title{Rouen in 1827}
 \format{
-\subsection{\code{pharmacy}}{
-
 A simple feature with 21,975 features and 1 field:
 \describe{
 \item{rowid}{identifiers}
 \item{geometry}{geometry of polygons}
 }
 }
-}
 \source{
-\url{http://www.fabriquenumeriquedupasse.fr/explore/dataset/rouen_parcelles_1827/information/} Lise Levieux, Guillaume Gaillard, Licence ODbL
+Lise Levieux, Guillaume Gaillard, 2022, ODbL Licence, \url{http://www.fabriquenumeriquedupasse.fr/explore/dataset/rouen_parcelles_1827/information/}
 }
 \usage{
 rouen_1827

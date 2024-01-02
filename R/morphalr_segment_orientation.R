@@ -1,12 +1,12 @@
-#' Compute segment orientation
+#' Segment orientation
 #'
 #' @description
 #' Compute orientations of segments (i.e. lines).
 #'
-#' @param sfsegments A sf object (MULTILINESTRING or LINESTRING)
-#' @param looking Look direction: `"N"` or `"E"` (default is North)
-#' @param perpendicular If `TRUE`, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90 (default is `FALSE`)
-#' @return A sf object composed of segments (i.e. lines) with orientations
+#' @param sfsegments sf object with sfc as `"MULTILINESTRING"` or `"LINESTRING"`.
+#' @param looking look direction parameter: `"N"` North or `"E"` East (default is North).
+#' @param perpendicular logical parameter. If `TRUE`, perpendiculars to orientations between `[0;90]` (i.e. `[-90;0]`) degrees are recalculated in the interval `[0;90]` (default is `FALSE`).
+#' @return sf object composed of segments (i.e. lines) with orientations.
 #'
 #' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. [https://doi.org/10.4000/books.pufr.7717]( https://doi.org/10.4000/books.pufr.7717).
 #'

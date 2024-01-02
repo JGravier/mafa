@@ -19,10 +19,7 @@ library(morphalr)
 library(ggplot2)
 ```
 
-## morphalr: Morphological Analysis for Archaeology
-morphalr package compute morphological indices of spatial entities (e.g. parcels, buildings). It also provides computation of multivariate statistics (HCA/PCA).
-
-## Compute orientations from polygon
+## Compute orientations
 Load data of parcels of the city of Rouen in 1827 and extract segments (lines) from polygons.
 ```{r, message=FALSE, warning=FALSE}
 # transform polygons as segments (lines)
@@ -42,7 +39,7 @@ orientationsest |>
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
 ```
 
-## Compute morphological indices
+## Compute morphological indices of polygons
 Example with distance to minimal bounding rectangle (DSR):
 ```{r, message=FALSE, warning=FALSE}
 rouen_1827 |>
@@ -54,7 +51,7 @@ rouen_1827 |>
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.grid = element_blank())
 ```
 
-## Computing clusters from indices
+## Compute clusters from indices
 Compute indices.
 ```{r, message=FALSE, warning=FALSE}
 rouen_with_indices <- rouen_1827 |>
@@ -66,7 +63,7 @@ rouen_with_indices <- rouen_with_indices[,2:5] # without rowid
 rouen_with_indices
 ```
 
-Create clustering and plot result:
+Create HCA clustering and plot result:
 ```{r, message=FALSE, warning=FALSE}
 clusterrouen <- morphalr_clustering(sf = rouen_with_indices, pca_center = TRUE, pca_scale = TRUE, hca_method = 'ward.D2')
 

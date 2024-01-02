@@ -2,19 +2,19 @@
 % Please edit documentation in R/morphalr_segment_orientation.R
 \name{morphalr_segment_orientation}
 \alias{morphalr_segment_orientation}
-\title{Compute segment orientation}
+\title{Segment orientation}
 \usage{
 morphalr_segment_orientation(sfsegments, looking = "N", perpendicular = FALSE)
 }
 \arguments{
-\item{sfsegments}{A sf object (MULTILINESTRING or LINESTRING)}
+\item{sfsegments}{sf object with sfc as \code{"MULTILINESTRING"} or \code{"LINESTRING"}.}
 
-\item{looking}{Look direction: \code{"N"} or \code{"E"} (default is North)}
+\item{looking}{look direction parameter: \code{"N"} North or \code{"E"} East (default is North).}
 
-\item{perpendicular}{If \code{TRUE}, perpendiculars to orientations between 0-90 degrees are recalculated in the interval 0-90 (default is \code{FALSE})}
+\item{perpendicular}{logical parameter. If \code{TRUE}, perpendiculars to orientations between \verb{[0;90]} (i.e. \verb{[-90;0]}) degrees are recalculated in the interval \verb{[0;90]} (default is \code{FALSE}).}
 }
 \value{
-A sf object composed of segments (i.e. lines) with orientations
+sf object composed of segments (i.e. lines) with orientations.
 }
 \description{
 Compute orientations of segments (i.e. lines).

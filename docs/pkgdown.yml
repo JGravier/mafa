@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   morphalr: morphalr.html
   orientations: orientations.html
-last_built: 2023-12-09T10:23Z
+last_built: 2024-01-02T12:30Z
 urls:
   reference: https://jgravier.github.io/morphalr/reference
   article: https://jgravier.github.io/morphalr/articles

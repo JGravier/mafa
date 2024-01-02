@@ -1,17 +1,17 @@
-#' Compute Miller circularity index
+#' Miller circularity index
 #'
 #' @description
 #' Compute Miller circularity index of polygons.
 #'
 #' @details
 #' \eqn{I_M = \frac{4\pi A_p}{P_p^2}}, with \eqn{A_p} the area of a polygon and \eqn{P_{p}} its perimeter.
-#' It is the ratio between the area of the polygon and a theoretical circle with the same perimeter.
-#' In this sense, Miller similarity index to a circle is also written \eqn{I_M = \frac{A_p}{\pi(\frac{P_p}{2\pi})^2}}.
+#' Miller circularity index is the ratio between the area of the polygon and a theoretical circle with the same perimeter.
+#' In this sense, the index is also written as a similarity index to a circle \eqn{I_M = \frac{A_p}{\pi(\frac{P_p}{2\pi})^2}}.
 #' Miller index is normalized between `[0-1]`.
 #'
 #'
-#' @param sfpolygons A sf object composed of polygons
-#' @return `sfpoygons` with miller_index as a new variable
+#' @param sfpolygons sf object composed of polygons.
+#' @return `sfpoygons` with index result in a new column, named `miller_index`.
 #'
 #' @references Robert, Sandrine, Éric Grosso, Pascal Chareille, et Hélène Noizet. 2014. « MorphAL (Morphological Analysis) : un outil d’analyse de morphologie urbaine ». In Archéologie de l’espace urbain, édité par Elisabeth Lorans et Xavier Rodier, 451‑63. Perspectives Villes et Territoires. Tours: Presses universitaires François-Rabelais. [https://doi.org/10.4000/books.pufr.7717]( https://doi.org/10.4000/books.pufr.7717).
 #'

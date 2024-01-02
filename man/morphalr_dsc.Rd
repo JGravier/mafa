@@ -2,15 +2,15 @@
 % Please edit documentation in R/morphalr_dsc.R
 \name{morphalr_dsc}
 \alias{morphalr_dsc}
-\title{Compute distance to convex hull}
+\title{Distance to convex hull}
 \usage{
 morphalr_dsc(sfpolygons)
 }
 \arguments{
-\item{sfpolygons}{A sf object composed of polygons}
+\item{sfpolygons}{sf object composed of polygons.}
 }
 \value{
-\code{sfpoygons} with DSC as a new variable
+\code{sfpoygons} with DSC as a new column.
 }
 \description{
 Compute the distance of a polygon to its convex hull (DSC).

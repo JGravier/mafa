@@ -1,4 +1,4 @@
-#' Extract segments of polygons or lines
+#' Segments of polygons or lines
 #'
 #' @description
 #' Extraction of segments (as `LINE`) composing polygons or lines.
@@ -8,9 +8,9 @@
 #' When computing to `"LINESTRING"`, output is a long sf of `sfobject` where each row correspond to a segment with a `GEOMETRY` as `LINE`.
 #'
 #'
-#' @param sfobject A sf object (sfc is POLYGON or LINESTRING)
-#' @param to Type of sfc in sf output: `"MULTILINESTRING"` or `"LINESTRING"` (default is `"MULTILINESTRING"`)
-#' @return A sf object composed of segments
+#' @param sfobject sf object (sfc is POLYGON or LINESTRING).
+#' @param to type of sfc in sf output: `"MULTILINESTRING"` or `"LINESTRING"` (default is `"MULTILINESTRING"`).
+#' @return sf object composed of segments.
 #'
 #' @author Diego Hernangómez
 #'

@@ -2,17 +2,17 @@
 % Please edit documentation in R/morphalr_geom_to_segment.R
 \name{morphalr_geom_to_segment}
 \alias{morphalr_geom_to_segment}
-\title{Extract segments of polygons or lines}
+\title{Segments of polygons or lines}
 \usage{
 morphalr_geom_to_segment(sfobject, to = "MULTILINESTRING")
 }
 \arguments{
-\item{sfobject}{A sf object (sfc is POLYGON or LINESTRING)}
+\item{sfobject}{sf object (sfc is POLYGON or LINESTRING).}
 
-\item{to}{Type of sfc in sf output: \code{"MULTILINESTRING"} or \code{"LINESTRING"} (default is \code{"MULTILINESTRING"})}
+\item{to}{type of sfc in sf output: \code{"MULTILINESTRING"} or \code{"LINESTRING"} (default is \code{"MULTILINESTRING"}).}
 }
 \value{
-A sf object composed of segments
+sf object composed of segments.
 }
 \description{
 Extraction of segments (as \code{LINE}) composing polygons or lines.

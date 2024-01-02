@@ -1,16 +1,16 @@
 #' Add clusters of spatial entities
 #'
 #' @description
-#' Add clusters of spatial entities from selected cutting threshold of the `morphalr_clustering()` result.
+#' Add clusters of spatial entities from a selected cutting threshold of a `hclust` object.
 #'
 #'
 #' @param sf sf object.
-#' @param clustering hclust object, e.g. the result of `morphalr_clustering()`.
+#' @param clustering `hclust` object, e.g. the result of `morphalr_clustering()`.
 #' @param cutting numeric value of cutting threshold.
-#' @return sf object with clusters as a new variable.
+#' @return sf object with clusters as a new column.
 #'
 #'
-#' @seealso [morphalr_clustering()]
+#' @seealso [morphalr::morphalr_clustering()]
 #'
 #' @importFrom Rdpack reprompt
 #' @importFrom rlang .data

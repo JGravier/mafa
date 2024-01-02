@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, attr.warning=FALSE}
+```{r setup, attr.warning=FALSE, message=FALSE}
 library(morphalr)
 library(parallel)
 library(data.table)
@@ -24,13 +24,13 @@ library(ggplot2)
 ```
 
 ## Extracting segments from sf
-Extracting segments with `morphal_geom_to_segment()` can be applied to polygon or linestring geometry. Default output consists of the input sf composed of segments (i.e LINE) in a MULTILINESTRING geometry.
+Extracting segments with `morphal_geom_to_segment()` can be applied to polygon or linestring geometries. Default output consists of the input sf composed of segments (i.e LINE as line composed of only two points) in a MULTILINESTRING geometry.
 ```{r, message=FALSE, warning=FALSE}
 # transform polygons as segments (lines)
 morphalr_geom_to_segment(sfobject = rouen_1827)
 ```
 
-Parameter `to` provides LINESTRING output.
+Parameter `to` can provides LINESTRING output.
 ```{r, message=FALSE, warning=FALSE}
 rouenline <- morphalr_geom_to_segment(sfobject = rouen_1827, to = 'LINESTRING')
 rouenline
@@ -38,7 +38,7 @@ rouenline
 
 
 ## Parallelizing extraction
-Computing of `morphal_geom_to_segment()` can be long and it may be useful to parallelize computing.
+Computing of `morphal_geom_to_segment()` can be long and it may be useful to apply parallel computing.
 ```{r, message=FALSE, warning=FALSE, eval=FALSE}
 nbcores <- parallel::detectCores() - 1
 rouensplit <- rouen_1827 |>

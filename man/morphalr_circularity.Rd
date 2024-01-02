@@ -2,23 +2,23 @@
 % Please edit documentation in R/morphalr_circularity.R
 \name{morphalr_circularity}
 \alias{morphalr_circularity}
-\title{Compute Miller circularity index}
+\title{Miller circularity index}
 \usage{
 morphalr_circularity(sfpolygons)
 }
 \arguments{
-\item{sfpolygons}{A sf object composed of polygons}
+\item{sfpolygons}{sf object composed of polygons.}
 }
 \value{
-\code{sfpoygons} with miller_index as a new variable
+\code{sfpoygons} with index result in a new column, named \code{miller_index}.
 }
 \description{
 Compute Miller circularity index of polygons.
 }
 \details{
 \eqn{I_M = \frac{4\pi A_p}{P_p^2}}, with \eqn{A_p} the area of a polygon and \eqn{P_{p}} its perimeter.
-It is the ratio between the area of the polygon and a theoretical circle with the same perimeter.
-In this sense, Miller similarity index to a circle is also written \eqn{I_M = \frac{A_p}{\pi(\frac{P_p}{2\pi})^2}}.
+Miller circularity index is the ratio between the area of the polygon and a theoretical circle with the same perimeter.
+In this sense, the index is also written as a similarity index to a circle \eqn{I_M = \frac{A_p}{\pi(\frac{P_p}{2\pi})^2}}.
 Miller index is normalized between \verb{[0-1]}.
 }
 \references{
