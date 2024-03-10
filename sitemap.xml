@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jgravier.github.io/morphalr/404.html</loc>
+    <loc>https://jgravier.github.io/mafa/404.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/LICENSE.html</loc>
+    <loc>https://jgravier.github.io/mafa/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/articles/index.html</loc>
+    <loc>https://jgravier.github.io/mafa/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/articles/morphalr.html</loc>
+    <loc>https://jgravier.github.io/mafa/articles/mafa.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/articles/orientations.html</loc>
+    <loc>https://jgravier.github.io/mafa/articles/orientations.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/authors.html</loc>
+    <loc>https://jgravier.github.io/mafa/authors.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/index.html</loc>
+    <loc>https://jgravier.github.io/mafa/index.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/index.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_circularity.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_circularity.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_clustering.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_clustering.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_clusters.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_clusters.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_clusters_mean.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_clusters_mean.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_complexity.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_complexity.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_dsc.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_dsc.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_dsr.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_dsr.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_geom_to_segment.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_geom_to_segment.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_mbboxoriented.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_mbboxoriented.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/morphalr_segment_orientation.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/mafa_segment_orientation.html</loc>
   </url>
   <url>
-    <loc>https://jgravier.github.io/morphalr/reference/rouen_1827.html</loc>
+    <loc>https://jgravier.github.io/mafa/reference/rouen_1827.html</loc>
   </url>
 </urlset>

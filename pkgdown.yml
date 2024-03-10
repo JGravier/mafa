@@ -1,11 +1,11 @@
-pandoc: 2.19.2
+pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
-  morphalr: morphalr.html
+  mafa: mafa.html
   orientations: orientations.html
-last_built: 2024-01-02T12:44Z
+last_built: 2024-03-10T18:18Z
 urls:
-  reference: https://jgravier.github.io/morphalr/reference
-  article: https://jgravier.github.io/morphalr/articles
+  reference: https://jgravier.github.io/mafa/reference
+  article: https://jgravier.github.io/mafa/articles
 
