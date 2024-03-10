@@ -1,11 +1,11 @@
-Package: morphalr
+Package: mafa
 Title: Morphological Analysis for Archaeology
 Version: 0.0.0.9000
 Authors@R: 
     person("Julie", "Gravier", , "juliecatherine.gravier@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0449-6499"))
 Description: A package to compute morphological indices of spatial entities (e.g. parcels, buildings). 
-   It also provides computation and summary of multivariate statistics results (HCA/PCA).
+   It also provides computation and summary of multivariate statistics results.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -31,4 +31,4 @@ Suggests:
     parallel,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://jgravier.github.io/morphalr/
+URL: https://jgravier.github.io/mafa/

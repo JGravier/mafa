@@ -2,7 +2,7 @@
 #'
 #' Parcels of the city of Rouen in 1827
 #'
-#' @format A simple feature with 21,975 features and 1 field:
+#' @format A simple feature with 21,975 features and 1 field
 #' \describe{
 #'   \item{rowid}{identifiers}
 #'   \item{geometry}{geometry of polygons}

@@ -6,7 +6,7 @@ chunk_output_type: console
 ## package development
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![R](https://img.shields.io/badge/R-%3E%3D%202.10-blue) 
 ![R CMD check](https://img.shields.io/badge/R%20CMD%20check-passing-green)
-![Coverage](https://img.shields.io/badge/coverage-60%60-yellow)
+![Coverage](https://img.shields.io/badge/coverage-60%25-yellow)
 
-## morphalr: Morphological Analysis for Archaeology
-morphalr implements functions for calculating the orientation of geographic objects (lines and polygons) and shape indices (polygons) frequently used in landscape archaeology and urban morphology. It also simplifies hierarchical classification calculations on the coordinate distance matrix of PCA, and resumes the characterization of the derived classes.
+## mafa: Morphological Analysis for Archaeology
+mafa implements functions for calculating the orientation of geographic objects (lines and polygons) and shape indices (polygons) frequently used in landscape archaeology and urban morphology. It also simplifies hierarchical classification calculations on the coordinate distance matrix of PCA, and resumes the characterization of the derived classes.

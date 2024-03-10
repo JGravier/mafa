@@ -5,7 +5,7 @@
 \alias{rouen_1827}
 \title{Rouen in 1827}
 \format{
-A simple feature with 21,975 features and 1 field:
+A simple feature with 21,975 features and 1 field
 \describe{
 \item{rowid}{identifiers}
 \item{geometry}{geometry of polygons}
