@@ -22,7 +22,7 @@ install_github(repo = "JGravier/mafa")
 ```
 
 ## Overview
-mafa is an R package for calculating morphological indices of spatial units (e.g. plots, buildings, roads), frequently used in archaeology and archaeography. It is inspired by the morphometric and orientation index calculations of MorphAl, a QGIS plugin (Robert et al. 2014) developed by E. Grosso (Grosso 2021), and the complexity index proposed in Marie et al (2009). mafa implements, as a wrapper, multivariate statistical processing applied to spatial units and usually performed in the field of quantitative geography (Sanders 1989, Commenges et al. 2014). The package is currently under development and the short-term objective is to integrate the index calculations used in the Archaedyn program to study agrarian and parcel structures (Gauthier et al. 2022, see in particular indices p. 65).
+mafa is an R package for calculating morphological indices of spatial units (e.g. plots, buildings, roads), frequently used in archaeology and archaeography. It is inspired by the morphometric and orientation index calculations of MorphAl, a QGIS plugin developed by E. Grosso (Grosso 2021, Robert et al. 2014), and the complexity index proposed in Marie et al (2009). mafa implements, as a wrapper, multivariate statistical processing applied to spatial units and usually performed in the field of quantitative geography (Sanders 1989, Commenges et al. 2014). The package is currently under development and the short-term objective is to integrate the index calculations used in the Archaedyn program to study agrarian and parcel structures (Gauthier et al. 2022, see in particular indices p. 65).
 
 **References**
 

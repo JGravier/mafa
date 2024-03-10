@@ -4,7 +4,8 @@ pkgdown_sha: ~
 articles:
   mafa: mafa.html
   orientations: orientations.html
-last_built: 2024-03-10T17:44Z
+last_built: 2024-03-10T18:17Z
 urls:
   reference: https://jgravier.github.io/mafa/reference
   article: https://jgravier.github.io/mafa/articles
+
